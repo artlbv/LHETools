@@ -221,6 +221,10 @@ void lheReader::ntuplizer(TString output)
 
                 while (getline(**fileinput, lheline)) {
 
+		    // Ignore comments
+                    if (lheline[0] == '#')
+                        continue;
+
                     // Find begining of event
                     if (lheline == beginevent) {
                         eventswitch = true;
